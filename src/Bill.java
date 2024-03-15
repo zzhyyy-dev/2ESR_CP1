@@ -1,12 +1,55 @@
+import java.util.ArrayList;
+
 public class Bill {
-    //ADICIONAR ISSO EM UM ARRAY DE STR, PARA QUANDO FINALIZAR A COMPRA APARECER TODOS OS BILL CRIADOS, OU SEJA, I=0;i < qntComprados;I++;
-    Bill(String produto, double valor, int qtd, double imposto, double valorFinal){
-        System.out.println("=======================================================\n" +
-                "Produto: "+produto+"\n" +
-                "Valor sem imposto: "+valor+"\n" +
-                "Quantidade do produto: "+ qtd+ "\n" +
-                "Valor do imposto: "+imposto+"\n" +
-                "Valor final: "+valorFinal+"\n" +
-                "=======================================================");
+    private static ArrayList<Bill> bills = new ArrayList<>();
+    private String produto;
+    private double valor;
+    private int qtd;
+    private double imposto;
+    private double valorFinal;
+
+    public Bill(String produto, double valor, int qtd, double imposto, double valorFinal) {
+        this.produto = produto;
+        this.valor = valor;
+        this.qtd = qtd;
+        this.imposto = imposto;
+        this.valorFinal = valorFinal;
+        // Adicionando esta instância ao array
+        bills.add(this);
+    }
+
+    // Método para exibir todas as instâncias
+    public static String getAllBills() {
+        StringBuilder result = new StringBuilder();
+        for (Bill bill : bills) {
+            result.append("=======================================================\n")
+                    .append("Produto: ").append(bill.produto).append("\n")
+                    .append("Valor sem imposto: ").append(bill.valor).append("\n")
+                    .append("Quantidade do produto: ").append(bill.qtd).append("\n")
+                    .append("Valor do imposto: ").append(bill.imposto).append("\n")
+                    .append("Valor final: ").append(bill.valorFinal).append("\n")
+                    .append("=======================================================\n");
+        }
+        return result.toString();
+    }
+
+    public char[] getProduto() {
+        return produto.toCharArray();
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public int getQtd() {
+        return qtd;
+    }
+
+    public double getImposto() {
+        return imposto;
+    }
+
+    public double getValorFinal() {
+        return valorFinal;
     }
 }

@@ -13,16 +13,17 @@ public class HandleBuy {
             Products purchase = new Products();
             while (!c.equals("finalizar")){
                 startBuy(purchase);
-                System.out.print("\nVocê quer  continuar comprando ou finalizar?\n");
+                System.out.print("\nVocê quer continuar comprando ou finalizar?\n");
                 this.c = getInput.nextLine();
             }
-            if (purchase.finalValue == 0) {
-                System.out.println("abraços");
-            }else {
-                System.out.println("\nO valor final da compra deu R$" + purchase.finalValue + "\n" +
-                        "Produtos comprados: " + purchase.products+ "\n" +
-                        "Total pago em impostos foi R$" + purchase.finalTax + "\n" +
-                        "Quantidade de compras: " + purchase.qtdPurchased);
+            if (purchase.getAllBills().isEmpty()) {
+                System.out.println("Nenhum produto foi comprado.");
+            } else {
+                System.out.println("\nDetalhes da compra:");
+                System.out.println(purchase.getAllBills());
+                System.out.println("Valor total da compra: R$" + purchase.finalValue);
+                System.out.println("Total pago em impostos: R$" + purchase.finalTax);
+                System.out.println("Quantidade de compras: " + purchase.qtdPurchased);
             }
         } else {
             System.out.println("abraços");
@@ -33,5 +34,10 @@ public class HandleBuy {
         System.out.println("Esses são nossos produtos: "+ Arrays.toString(options.prods));
         String prod = getInput.nextLine();
         finalBuy.handleType(prod);
+    }
+
+    public static void main(String[] args) {
+        HandleBuy handleBuy = new HandleBuy();
+        handleBuy.compra();
     }
 }
