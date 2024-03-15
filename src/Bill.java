@@ -33,23 +33,4 @@ public class Bill {
         return result.toString();
     }
 
-    public char[] getProduto() {
-        return produto.toCharArray();
-    }
-
-    public double getValor() {
-        return valor;
-    }
-
-    public int getQtd() {
-        return qtd;
-    }
-
-    public double getImposto() {
-        return imposto;
-    }
-
-    public double getValorFinal() {
-        return valorFinal;
-    }
 }

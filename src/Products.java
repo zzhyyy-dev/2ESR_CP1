@@ -12,28 +12,17 @@ public class Products {
     private double taxes = 0.05;
 
     public void handleType(String Nprod){
-        String prod = Nprod;
         boolean encontrado = Arrays.asList(prods).contains(Nprod);
         if (encontrado){
-            int value;
-            switch (Nprod){
-                case "banana":
-                    value = 3;
-                    break;
-                case "maça":
-                    value = 4;
-                    break;
-                case "manga":
-                    value = 2;
-                    break;
-                case "morango":
-                    value = 5;
-                    break;
-                default:
-                    value = 0;
-            }
+            int value = switch (Nprod) {
+                case "banana" -> 3;
+                case "maça" -> 4;
+                case "manga" -> 2;
+                case "morango" -> 5;
+                default -> 0;
+            };
             if(value != 0)
-                handleAccount(prod, value);
+                handleAccount(Nprod, value);
         }else {
             System.out.println("Não selecionou nenhuma das opções disponíveis");
         }
@@ -52,29 +41,4 @@ public class Products {
         qtdPurchased = qtdPurchased + 1;
     }
 
-    // Método para exibir todas as instâncias
-    public String getAllBills() {
-        StringBuilder result = new StringBuilder();
-        for (Bill bill : bills) {
-            result.append("=======================================================\n")
-                    .append("Produto: ").append(bill.getProduto()).append("\n")
-                    .append("Quantidade do produto: ").append(bill.getQtd()).append("\n")
-                    .append("Valor sem imposto: ").append(bill.getValor()).append("\n")
-                    .append("Valor do imposto: ").append(bill.getImposto()).append("\n")
-                    .append("Valor final: ").append(bill.getValorFinal()).append("\n")
-                    .append("=======================================================\n");
-        }
-        return result.toString();
-    }
-
-    public static void main(String[] args) {
-        Products products = new Products();
-        // Exemplo de uso
-        products.handleType("banana");
-        products.handleType("maça");
-        products.handleType("manga");
-
-        // Exibindo todas as instâncias
-        System.out.println(products.getAllBills());
-    }
 }

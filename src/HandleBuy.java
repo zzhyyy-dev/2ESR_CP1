@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class HandleBuy {
     static Products options = new Products();
     Scanner getInput = new Scanner(System.in);
-
     public String c;
     public void compra(){
         System.out.print("Quer comprar algo? sim ou nao\n");
@@ -16,11 +15,11 @@ public class HandleBuy {
                 System.out.print("\nVocê quer continuar comprando ou finalizar?\n");
                 this.c = getInput.nextLine();
             }
-            if (purchase.getAllBills().isEmpty()) {
+            if (Bill.getAllBills().isEmpty()) {
                 System.out.println("Nenhum produto foi comprado.");
             } else {
                 System.out.println("\nDetalhes da compra:");
-                System.out.println(purchase.getAllBills());
+                System.out.println(Bill.getAllBills());
                 System.out.println("Valor total da compra: R$" + purchase.finalValue);
                 System.out.println("Total pago em impostos: R$" + purchase.finalTax);
                 System.out.println("Quantidade de compras: " + purchase.qtdPurchased);
@@ -34,10 +33,5 @@ public class HandleBuy {
         System.out.println("Esses são nossos produtos: "+ Arrays.toString(options.prods));
         String prod = getInput.nextLine();
         finalBuy.handleType(prod);
-    }
-
-    public static void main(String[] args) {
-        HandleBuy handleBuy = new HandleBuy();
-        handleBuy.compra();
     }
 }
