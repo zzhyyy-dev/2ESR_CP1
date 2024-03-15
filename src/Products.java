@@ -3,17 +3,17 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Products {
-    public int qtdPurchased = 0;
+    private int qtdPurchased = 0;
     private ArrayList<Bill> bills = new ArrayList<>();
     private Scanner getInput = new Scanner(System.in);
-    String[] prods = {"banana","maça","manga","morango"};
-    double finalTax = 0;
-    double finalValue = 0;
-    private double taxes = 0.05;
+    private String[] products = {"banana","maça","manga","morango"};
+    private double finalTax = 0;
+    private double finalValue = 0;
+    private double tax = 0.05;
 
     public void handleType(String Nprod){
-        boolean encontrado = Arrays.asList(prods).contains(Nprod);
-        if (encontrado){
+        boolean in = Arrays.asList(products).contains(Nprod);
+        if (in){
             int value = switch (Nprod) {
                 case "banana" -> 3;
                 case "maça" -> 4;
@@ -27,18 +27,30 @@ public class Products {
             System.out.println("Não selecionou nenhuma das opções disponíveis");
         }
     }
-
-    public void handleAccount(String prod, int value){
+    private void handleAccount(String prod, int value){
         System.out.print("Qual a quantidade: \n");
         int units = getInput.nextInt();
         int buy = value * units;
-        double tax = buy * taxes;
-        double price = buy + tax;
-        Bill newBuy = new Bill(prod, buy, units, tax, price);
-        bills.add(newBuy); // Adicionando a instância de Bill ao ArrayList
-        finalTax += tax;
+        double taxes = buy * tax;
+        double price = buy + taxes;
+        Bill newBuy = new Bill(prod, buy, units, taxes, price);
+        bills.add(newBuy);
+        finalTax += taxes;
         finalValue += price;
-        qtdPurchased = qtdPurchased + 1;
+        qtdPurchased += 1;
+    }
+    public double getFinalTax() {
+        return finalTax;
+    }
+    public double getFinalValue() {
+        return finalValue;
     }
 
+    public int getQtdPurchased() {
+        return qtdPurchased;
+    }
+
+    public String[] getProducts() {
+        return products;
+    }
 }

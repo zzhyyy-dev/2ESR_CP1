@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Olá seja bem vindo a loja");
-        HandleBuy dd = new HandleBuy();
-        dd.compra();
+        HandleBuy Npurchase = new HandleBuy();
+        Npurchase.purchase();
     }
 }

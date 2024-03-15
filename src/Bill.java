@@ -14,11 +14,9 @@ public class Bill {
         this.qtd = qtd;
         this.imposto = imposto;
         this.valorFinal = valorFinal;
-        // Adicionando esta instância ao array
         bills.add(this);
     }
 
-    // Método para exibir todas as instâncias
     public static String getAllBills() {
         StringBuilder result = new StringBuilder();
         for (Bill bill : bills) {
