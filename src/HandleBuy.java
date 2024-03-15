@@ -20,8 +20,9 @@ public class HandleBuy {
                 System.out.println("abraços");
             }else {
                 System.out.println("\nO valor final da compra deu R$" + purchase.finalValue + "\n" +
-                        "os produtos comprados foram: " + purchase.products+ "\n" +
-                        "e o total pago em impostos foi R$" + purchase.finalTax);
+                        "Produtos comprados: " + purchase.products+ "\n" +
+                        "Total pago em impostos foi R$" + purchase.finalTax + "\n" +
+                        "Quantidade de compras: " + purchase.qtdPurchased);
             }
         } else {
             System.out.println("abraços");

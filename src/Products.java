@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Products {
     String products = "";
+    int qtdPurchased = 0;
     Scanner getInput = new Scanner(System.in);
     double finalValue = 0;
     String prod;
@@ -44,5 +45,6 @@ public class Products {
         finalTax = finalTax + tax;
         finalValue = finalValue + price;
         products = products + prod + "," ;
+        qtdPurchased = qtdPurchased + 1;
     }
 }
