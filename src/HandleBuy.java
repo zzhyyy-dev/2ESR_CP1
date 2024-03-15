@@ -1,31 +1,36 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class HandleBuy {
+    static Products options = new Products();
+    Scanner getInput = new Scanner(System.in);
+
     public String c;
-    public void Compra(){
-        Scanner getInput = new Scanner(System.in);
-        System.out.print("Você quer comprar? sim ou nao\n");
+    public void compra(){
+        System.out.print("Quer comprar algo? sim ou nao\n");
         c = getInput.nextLine();
         if (!c.equals("nao")){
             Products purchase = new Products();
             while (!c.equals("finalizar")){
-                StartBuy(purchase);
+                startBuy(purchase);
                 System.out.print("\nVocê quer  continuar comprando ou finalizar?\n");
                 this.c = getInput.nextLine();
             }
             if (purchase.finalValue == 0) {
                 System.out.println("abraços");
             }else {
-                System.out.println("o valor final da compra deu " + purchase.finalValue);
+                System.out.println("\nO valor final da compra deu R$" + purchase.finalValue + "\n" +
+                        "os produtos comprados foram: " + purchase.products+ "\n" +
+                        "e o total pago em impostos foi R$" + purchase.finalTax);
             }
         } else {
             System.out.println("abraços");
         }
     }
-    public void StartBuy(Products finalBuy){
-        Scanner getInput = new Scanner(System.in);
-        System.out.print("Qual produto irá querer?\n");
+    public void startBuy(Products finalBuy){
+        System.out.print("\nQual produto irá querer?\n");
+        System.out.println("Esses são nossos produtos: "+ Arrays.toString(options.prods));
         String prod = getInput.nextLine();
-        finalBuy.HandleType(prod);
+        finalBuy.handleType(prod);
     }
 }

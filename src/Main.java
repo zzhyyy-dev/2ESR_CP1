@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.Arrays;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -13,10 +14,11 @@ public class Main {
 //Utilizar:
 //Classe(s)
 //Encapsulamento
+
+
     public static void main(String[] args) {
         System.out.println("Olá seja bem vindo a loja");
-//        showprodutos
         HandleBuy dd = new HandleBuy();
-        dd.Compra();
+        dd.compra();
     }
 }
