@@ -11,7 +11,7 @@ public class HandleBuy {
             Products end = new Products();
             while (!c.equals("finalizar")){
                 newHandle(end);
-                System.out.print("Você quer  continuar comprando ou finalizar?\n");
+                System.out.print("\nVocê quer  continuar comprando ou finalizar?\n");
                 String vontde = getInput.nextLine();
                 this.c = vontde;
             }
@@ -24,7 +24,6 @@ public class HandleBuy {
             System.out.println("abraco");
         }
     }
-
     public void newHandle(Products finalBuy){
         Scanner getInput = new Scanner(System.in);
         System.out.print("Qual produto irá querer?\n");

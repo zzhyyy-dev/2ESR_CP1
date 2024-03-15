@@ -3,12 +3,14 @@ import java.util.Scanner;
 
 public class Products {
     Scanner getInput = new Scanner(System.in);
-    public double finalValue = 0;
-
+    double finalValue = 0;
+    String prod;
     private double taxes = 0.05;
     public void Handle(String Nprod){
+        prod = Nprod;
         switch (Nprod){
             case "banana":
+                prod = Nprod;
                 HandleAccount(5);
                 break;
             case "maça":
@@ -25,6 +27,11 @@ public class Products {
         double imposto = compra * taxes;
         double CompraFinal = compra - imposto;
         setValue(CompraFinal);
+        System.out.println("\nnome: "+prod);
+        System.out.println("valor da compra sem imposto: "+compra);
+        System.out.println("unidades: "+units);
+        System.out.println("imposto da compra: "+imposto);
+        System.out.println("valor da compra com imposto: "+CompraFinal);
     }
     public void setValue(double value){
         double oldValue = finalValue;
