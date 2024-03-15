@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class HandleBuy {
     public String c;
-
     public void Compra(){
         Scanner getInput = new Scanner(System.in);
         System.out.print("Você quer comprar? sim ou nao\n");
@@ -16,10 +15,10 @@ public class HandleBuy {
                 String vontde = getInput.nextLine();
                 this.c = vontde;
             }
-            if (end.ShowValue() == 0) {
+            if (end.finalValue == 0) {
                 System.out.println("abraco");
             }else {
-                System.out.println("o valor final da compra deu " + end.ShowValue());
+                System.out.println("o valor final da compra deu " + end.finalValue);
             }
         } else {
             System.out.println("abraco");
@@ -30,8 +29,6 @@ public class HandleBuy {
         Scanner getInput = new Scanner(System.in);
         System.out.print("Qual produto irá querer?\n");
         String buy = getInput.nextLine();
-
-
         finalBuy.Handle(buy);
     }
 }

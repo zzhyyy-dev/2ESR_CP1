@@ -15,8 +15,8 @@ public class Main {
 //Encapsulamento
     public static void main(String[] args) {
         System.out.println("Olá seja bem vindo a loja");
-//        produtos
-        HandleBuy dd =new HandleBuy();
+//        showprodutos
+        HandleBuy dd = new HandleBuy();
         dd.Compra();
     }
 }
