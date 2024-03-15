@@ -2,15 +2,17 @@ import java.lang.reflect.Array;
 import java.util.Scanner;
 
 public class Products {
+    int index = 0;
+    String products = "";
+    String qtd = "";
     Scanner getInput = new Scanner(System.in);
     double finalValue = 0;
     String prod;
     private double taxes = 0.05;
-    public void Handle(String Nprod){
+    public void HandleType(String Nprod){
         prod = Nprod;
         switch (Nprod){
             case "banana":
-                prod = Nprod;
                 HandleAccount(5);
                 break;
             case "maça":
@@ -23,18 +25,12 @@ public class Products {
     public void HandleAccount(int value){
         System.out.print("Qual a quantidade: \n");
         int units = getInput.nextInt();
-        int compra = value * units;
-        double imposto = compra * taxes;
-        double CompraFinal = compra - imposto;
-        setValue(CompraFinal);
-        System.out.println("\nnome: "+prod);
-        System.out.println("valor da compra sem imposto: "+compra);
-        System.out.println("unidades: "+units);
-        System.out.println("imposto da compra: "+imposto);
-        System.out.println("valor da compra com imposto: "+CompraFinal);
-    }
-    public void setValue(double value){
-        double oldValue = finalValue;
-        finalValue = oldValue + value;
+        int buy = value * units;
+        double tax = buy * taxes;
+        double price = buy + tax;
+        finalValue = finalValue + price;
+        Bill newBuy = new Bill(prod,buy,units,tax,price);
+        products = products + "," +prod;
+        qtd = qtd + "," + units;
     }
 }

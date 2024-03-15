@@ -5,29 +5,27 @@ public class HandleBuy {
     public void Compra(){
         Scanner getInput = new Scanner(System.in);
         System.out.print("Você quer comprar? sim ou nao\n");
-        String vontade = getInput.nextLine();
-        c = vontade;
-        if (c.equals("sim")){
-            Products end = new Products();
+        c = getInput.nextLine();
+        if (!c.equals("nao")){
+            Products purchase = new Products();
             while (!c.equals("finalizar")){
-                newHandle(end);
+                StartBuy(purchase);
                 System.out.print("\nVocê quer  continuar comprando ou finalizar?\n");
-                String vontde = getInput.nextLine();
-                this.c = vontde;
+                this.c = getInput.nextLine();
             }
-            if (end.finalValue == 0) {
-                System.out.println("abraco");
+            if (purchase.finalValue == 0) {
+                System.out.println("abraços");
             }else {
-                System.out.println("o valor final da compra deu " + end.finalValue);
+                System.out.println("o valor final da compra deu " + purchase.finalValue);
             }
         } else {
-            System.out.println("abraco");
+            System.out.println("abraços");
         }
     }
-    public void newHandle(Products finalBuy){
+    public void StartBuy(Products finalBuy){
         Scanner getInput = new Scanner(System.in);
         System.out.print("Qual produto irá querer?\n");
-        String buy = getInput.nextLine();
-        finalBuy.Handle(buy);
+        String prod = getInput.nextLine();
+        finalBuy.HandleType(prod);
     }
 }
